@@ -3390,7 +3390,6 @@
                     const Hook = new Regex(bundleCode, true);
                     window.COPY_CODE = (Hook.COPY_CODE.match(/^(\(function \w+\(\w+\)\{.+)\(.+?\);$/) || [])[1];
                     window.Hook = Hook;
-                    Hook.append("EXTERNAL fix", /\(function (\w+)\(\w+\)\{/, "let $2 = eval(`(() => ${COPY_CODE})()`);delete window.COPY_CODE;");
                     Hook.replace("strict", /{QUOTE}use strict{QUOTE};/, "");
                     const myPlayer = Hook.match('myPlayer', /=(\w.get\(\w{2}\));\w&&\w\(\)/)[1];
                     const srcLists = Hook.append("hookLists", /\w\=(\w+)\[(\w+)\(\).(\w+)\],\w\=\w{2}\-\w\.\w{2}.\w{2}\;/, ``)[2];
@@ -4532,3 +4531,4 @@ break;
     /******/
     /******/
 })();
+
