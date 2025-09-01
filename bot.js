@@ -12,42 +12,6 @@
 // @description 8/31/2025, 11:36:58 PM
 // ==/UserScript==
 /******/
-window.addEventListener('load', () => {
-    const botConsole = document.createElement('div');
-    botConsole.id = 'bot-console';
-    botConsole.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: rgba(0,0,0,0.8);
-        color: #00ff00;
-        font-family: monospace;
-        font-size: 12px;
-        line-height: 1.4;
-        padding: 8px;
-        max-width: 300px;
-        max-height: 200px;
-        overflow-y: auto;
-        z-index: 9999;
-        border-bottom-right-radius: 5px;
-    `;
-    document.body.appendChild(botConsole);
-
-    window.logBot = function(msg) {
-        const line = document.createElement("div");
-        const timestamp = new Date().toLocaleTimeString();
-        line.textContent = `[${timestamp}] ${msg}`;
-        botConsole.appendChild(line);
-        botConsole.scrollTop = botConsole.scrollHeight;
-
-        if (botConsole.children.length > 50) {
-            botConsole.removeChild(botConsole.children[0]);
-        }
-    };
-
-    // 🟢 Gọi sau khi logBot đã định nghĩa
-    logBot("✅ Bot console initialized!");
-});
 
 (() => { // webpackBootstrap
     /******/
